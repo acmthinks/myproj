@@ -15,8 +15,8 @@ spec:
         type: front-end
     spec:
       containers:
-      - name: ibmjava:8-sfj-container
-        image: ibmjava:8-sfj
+      - name: myproj-container
+        image: us.icr.io/hello_acc/myproj:1.1
   replicas: 3
   selector:
     matchLabels:
