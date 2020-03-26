@@ -1,0 +1,31 @@
+# 3. ReplicaSet definition for k8s management of app
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myproj-replicaset
+  labels:
+    app: myproj
+    type: front-end
+spec:
+  template:
+    metadata: 
+      name: myproj-pod
+      labels:
+        app: myproj
+        type: front-end
+    spec:
+      containers:
+      - name: ibmjava:8-sfj-container
+        image: ibmjava:8-sfj
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myproj
+
+#kubectl create -f replicaset-definition.yml
+#kubectl get replicaset
+#kubectl get pods
+
+#kubectl replace -f replicaset-definition.yml (to replace with new version of replicaset-definition.yml)
+#kubectl scale --replicas=6 -f replicaset-definition.yml (scales out while updating the yml file)
+#kubectl scale --replicas=6 replicaset myproj-replicaset (scales out while NOT updating the yml file)

@@ -1,0 +1,30 @@
+# 3. Deployment definition for k8s management of app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myproj-deployment
+  labels:
+    app: myproj
+    type: front-end
+spec:
+  template:
+    metadata: 
+      name: myproj-pod
+      labels:
+        app: myproj
+        type: front-end
+    spec:
+      containers:
+      - name: ibmjava:8-sfj-container
+        image: ibmjava:8-sfj
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myproj
+
+#kubectl create -f deployment-definition.yml
+#kubectl get deployments
+#kubectl get replicaset
+#kubectl get pods
+
+#kubectl get all

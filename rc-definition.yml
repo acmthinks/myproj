@@ -1,0 +1,24 @@
+# 2. Replication Controller definition for k8s management of app (this is the 'old' way of controlling workloads)
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myproj-rc
+  labels:
+    app: myproj
+    type: front-end
+spec:
+  template: 
+    metadata: 
+      name: myproj-pod
+      labels:
+        app: myproj
+        type: front-end
+    spec:
+      containers:
+        - name: ibmjava:8-sfj-container
+          image: ibmjava:8-sfj
+replicas: 3
+
+#kubectl create -f rc-defnition.yml
+#kubectl get replicationcontroller
+#kubectl get pods

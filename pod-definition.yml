@@ -1,0 +1,15 @@
+# 1. pod definition for k8s management of app
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: myproj-pod
+  labels:
+    app: myproj
+    type: front-end
+spec:
+  containers:
+    - name: ibmjava:8-sfj-container
+      image: ibmjava:8-sfj
+#kubectl create -f pod-defnition.yml
+#kubectl get pods      
+#kubectl describe pod myproj-pod

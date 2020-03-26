@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "cloudconfigserveracc-service"
+spec:
+  # if your cluster supports it, uncomment the following to automatically create
+  # an external load-balanced IP for the frontend service.
+  #type: LoadBalancer
+  type: NodePort
+  ports:
+  # the port that this service should serve on
+  - name: http
+    port: 8001
+
+  selector:
+    app: "cloudconfigserveracc-selector"
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "cloudconfigserveracc-deployment"
+spec:
+  # this replicas value is default
+  # modify it according to your case
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "cloudconfigserveracc-selector"
+    spec:
+      containers:
+      - name: cloudconfigserveracc
+        image: cloudconfigserveracc:latest
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8001
+          initialDelaySeconds: 20
+        # resources:
+        #   requests:
+        #     cpu: 100m
+        #     memory: 100Mi

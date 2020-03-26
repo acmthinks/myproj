@@ -1,0 +1,14 @@
+---
+applications:
+- instances: 1
+  timeout: 180
+  name: cloudconfigserveracc
+  buildpack: java_buildpack
+  path: ./target/cloudconfigserveracc-1.0-SNAPSHOT.jar
+  memory: 512M
+  domain: mybluemix.net
+  host: cloudconfigserveracc
+  env:
+    OPENAPI_SPEC : /swagger/api
+    #uncomment to enable Java debuging
+    #JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,address=YOUR-IP-ADDRESS:YOUR-PORT
