@@ -22,7 +22,9 @@ spec:
     matchLabels:
       app: myproj
 
-#kubectl create -f deployment-definition.yml
+#kubectl create -f deployment-definition.yml --record
+#kubectl rollout status deployment/myproj-deployment
+#kubectl rollout history deployment/myproj-deployment
 #kubectl get deployments
 #kubectl get replicaset
 #kubectl get pods
