@@ -22,8 +22,7 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Store in GitHub Packages
-      uses: ./
-      with:
-        name: app.jar
-        path: /target/myproj-1.0-SNAPSHOT.jar
+    - name: Publish package
+      run: mvn -B deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
