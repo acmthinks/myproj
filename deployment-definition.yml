@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: myproj-container
-        image: us.icr.io/hello_acc/myproj:1.1
+        image: docker.io/acmthinks/myproj:1.1
+        #image: us.icr.io/hello_acc/myproj:1.1
   replicas: 3
   selector:
     matchLabels:
