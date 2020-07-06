@@ -14,5 +14,6 @@ public class ConfigServer {
 		SpringApplication.run(ConfigServer.class, args);
 		System.out.println("\nAccess the local version of the Cloud Config Server at:\n\n    http://localhost:8001/ConfigData/dev");
 		System.out.println("\n\nFind the resources for this project in Github at https://github.com/acmthinks/myproj");
+		System.out.println("\n\nNow using GitHub Actions for CI workflow and package storage.");
 	}
 }
