@@ -7,5 +7,5 @@ This is a simple example of a centralized configuration service. This can be dep
 Designed to deploy on Kubernetes Service with IBM Container Services, but any k8s service provider should do.
 
 
-To build local:
+To build locally:
 ~/myproj> mvn clean install
